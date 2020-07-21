@@ -1,0 +1,32 @@
+{%extends "layout.njk" %}
+{%block style%}
+
+    <style>
+        .not-found {
+            text-align: center;
+        }
+
+        .not-found p {
+            color: white;
+        }
+
+        .not-found a:hover {
+            color: #8a2be2;
+        }
+    </style>
+    {%endblock%}
+
+    {%block title%}
+        <title>Not-found</title>
+        {%endblock%}
+
+        {%block content%}
+            <div class="not-found">
+                <h1>Ei dev, essa pagina não pode ser econtrada =/</h1>
+                <p>se quiser voltar a pagina inical,
+                    <a href="/courses">
+                        é so clicar aqui</a>
+                </p>
+            </div>
+
+            {%endblock%}
