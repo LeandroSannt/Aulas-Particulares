@@ -3,6 +3,7 @@
 :root{
     --blue-primary:rgba(0, 216, 245, 0.678);
     --blue-secundary: rgb(13, 150, 230);
+    --blue-terceiro:rgb(24, 138, 184);
 }
 
 * {
@@ -13,12 +14,10 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-   background-image: url(./imagens/bg-colegio.svg);
-   height: 100vh;
-   background-size:cover;
-    background-repeat:no-repeat;
+    background:url(./imagens/bg-colegio.svg) no-repeat center center/cover ;
+    background-attachment: fixed;
 
-
+   
 }
 
 header {
@@ -67,4 +66,130 @@ header a:hover {
     transition:all 700ms ease-in-out;
 }
 
+/*=====content=====*/
 
+.card{
+    width: 800px;
+    min-height: 400px;
+    background-color: rgb(24, 138, 184);
+    margin: 70px auto;
+    display: grid;
+    box-shadow: 2px 3px 6px 1px black;
+    grid-template-columns: 1fr 1.3fr ;
+    animation-name: up;
+    animation-duration: 700ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-delay: 0.2s;
+}
+@keyframes up{
+    0%{
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100%{
+        opacity: 1;
+        
+    }
+}
+
+.card .img-url{
+    background:url(https://source.unsplash.com/collection/517198/900x900)
+     no-repeat center center/cover;
+    width: 100%;
+}
+
+.details{
+    padding: 32px;
+}
+
+.details .item{
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px 0 8px;
+}
+
+.details .item:first-child{
+    border: none;
+}
+
+.details h3,
+.details .item div:nth-child(1){
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 24px;
+    color:rgb(16, 7, 146);
+    letter-spacing: 0.7px;
+    font-weight: normal;
+
+}
+
+.details .item div:nth-child(2){
+    color: rgb(228, 222, 222);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.details h3{
+    text-transform: uppercase;
+    font-weight: bold;
+   color: black;
+   margin-bottom: 20px;
+}
+
+.item span{
+    padding: 8px 16px;
+    background-color: var(--blue-primary);
+    border-radius: 16px;
+    color: black;
+    margin-right: 4px;
+    margin-top: 8px;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+/*=====create=====*/
+
+input{
+    width: 100%;
+    outline: none;
+    border: none;
+    color:rgb(0, 0, 0);
+    background-color: var(--blue-terceiro);
+    width: 100%;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+select{
+    width: 100%;
+    height: 25px;
+    border: none;
+    background-color: var(--blue-terceiro);
+    outline: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input[type="radio"]
+{
+    width: initial;
+    font-weight: normal;
+}
+
+input::placeholder{
+    font-size:16px;
+    font-weight: normal;
+    color:black
+}
+
+button[type="submit"]{
+    padding: 8px 32px ;
+    background-color:var(--blue-primary);
+    color: black;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 32px;
+    width: 100%;
+}
