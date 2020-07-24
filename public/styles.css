@@ -191,3 +191,29 @@ button[type="submit"], .buttom {
     text-align: center;
     text-decoration: none;
 }
+
+
+/*=====responsive=====*/
+
+@media (max-width:865px){
+
+    .card{
+        width: 85vw;
+        display: flex;
+        flex-direction: column;
+    
+    }
+    body{
+        position: relative;
+    }
+
+    .card .img-url{
+        
+        height: 200px;
+      
+        
+    }
+
+   
+
+}
