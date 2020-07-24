@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap');
-
-:root{
-    --blue-primary:rgba(0, 216, 245, 0.678);
+:root {
+    --blue-primary: rgba(0, 216, 245, 0.678);
     --blue-secundary: rgb(13, 150, 230);
-    --blue-terceiro:rgb(24, 138, 184);
+    --blue-terceiro: rgb(24, 138, 184);
 }
 
 * {
@@ -14,10 +13,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background:url(./imagens/bg-colegio.svg) no-repeat center center/cover ;
+    background: url(./imagens/bg-colegio.svg) no-repeat center center/cover;
     background-attachment: fixed;
-
-   
 }
 
 header {
@@ -29,20 +26,19 @@ header {
     z-index: 999;
 }
 
-
-header .menu a + a{ 
+header .menu a+a {
     margin-left: 20px;
 }
 
 header .menu a {
     font-size: 15pt;
     text-decoration: none;
-    color: white; 
+    color: white;
     position: relative;
     font-weight: 300;
 }
 
-.menu a.active{
+.menu a.active {
     font-weight: bold;
 }
 
@@ -50,7 +46,7 @@ header a:hover {
     color: var(--blue-secundary);
 }
 
-.menu a::after{
+.menu a::after {
     content: "";
     font-size: 20px;
     width: 0;
@@ -61,82 +57,79 @@ header a:hover {
     bottom: -4px;
 }
 
-.menu a:hover::after{
+.menu a:hover::after {
     width: 100%;
-    transition:all 700ms ease-in-out;
+    transition: all 700ms ease-in-out;
 }
 
 /*=====content=====*/
 
-.card{
+.card {
     width: 800px;
     min-height: 400px;
     background-color: rgb(24, 138, 184);
     margin: 70px auto;
     display: grid;
     box-shadow: 2px 3px 6px 1px black;
-    grid-template-columns: 1fr 1.3fr ;
+    grid-template-columns: 1fr 1.3fr;
     animation-name: up;
     animation-duration: 700ms;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
     animation-delay: 0.2s;
 }
-@keyframes up{
-    0%{
+
+@keyframes up {
+    0% {
         opacity: 0;
         transform: translateY(15px);
     }
-    100%{
+    100% {
         opacity: 1;
-        
     }
 }
 
-.card .img-url{
-    background:url(https://source.unsplash.com/collection/517198/900x900)
-     no-repeat center center/cover;
+.card .img-url {
+    background: url(https://source.unsplash.com/collection/517198/900x900) no-repeat center center/cover;
     width: 100%;
 }
 
-.details{
+.details {
     padding: 32px;
 }
 
-.details .item{
+.details .item {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 16px 0 8px;
 }
 
-.details .item:first-child{
+.details .item:first-child {
     border: none;
 }
 
-.details h3,
-.details .item div:nth-child(1){
+.details h3, .details .item div:nth-child(1) {
     margin-top: 8px;
     font-size: 14px;
     line-height: 24px;
-    color:rgb(16, 7, 146);
+    color: rgb(16, 7, 146);
     letter-spacing: 0.7px;
     font-weight: normal;
-
 }
 
-.details .item div:nth-child(2){
-    color: rgb(228, 222, 222);
+.details .item div:nth-child(2) {
+    color: rgb(0, 0, 0);
     font-weight: bold;
     font-size: 18px;
 }
 
-.details h3{
+.details h3 {
     text-transform: uppercase;
     font-weight: bold;
-   color: black;
-   margin-bottom: 20px;
+    color: black;
+    margin-bottom: 20px;
 }
 
-.item span{
+.item span {
     padding: 8px 16px;
     background-color: var(--blue-primary);
     border-radius: 16px;
@@ -151,18 +144,18 @@ header a:hover {
 
 /*=====create=====*/
 
-input{
+input {
     width: 100%;
     outline: none;
     border: none;
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
     background-color: var(--blue-terceiro);
     width: 100%;
     font-weight: bold;
     font-size: 18px;
 }
 
-select{
+select {
     width: 100%;
     height: 25px;
     border: none;
@@ -172,24 +165,29 @@ select{
     font-size: 18px;
 }
 
-input[type="radio"]
-{
+input[type="radio"] {
     width: initial;
     font-weight: normal;
 }
 
-input::placeholder{
-    font-size:16px;
+input::placeholder {
+    font-size: 16px;
     font-weight: normal;
-    color:black
+    color: black
 }
 
-button[type="submit"]{
-    padding: 8px 32px ;
-    background-color:var(--blue-primary);
+button[type="submit"], .buttom {
+    padding: 8px 32px;
+    background-color: var(--blue-primary);
     color: black;
     font-size: 16px;
     border-radius: 8px;
     margin-top: 32px;
     width: 100%;
+}
+
+.buttom {
+    display: block;
+    text-align: center;
+    text-decoration: none;
 }

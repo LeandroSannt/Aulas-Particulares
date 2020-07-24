@@ -2,32 +2,35 @@ const express = require("express")
 const routes = express.Router()
 const teachers = require("./instructors")
 
-routes.get("/",function(req, res){
-    return res.redirect("/teachers")
+routes.get("/", function (req, res) {
+    return res.redirect("/teacher")
 })
 
-routes.get("/teachers",function(req, res){
-    return res.render("teachers")
+routes.get("/teacher", function (req, res) {
+    return res.render("teacher/teachers")
 })
 
-routes.get("/students", function(req, res){
-    return res.render ("students")
-            
+
+routes.get("/students", function (req, res) {
+    return res.render("students")
+
 })
 
-routes.get("/create", function(req, res){
-    return res.render ("create")
+routes.get("/teacher/create", function (req, res) {
+    return res.render("teacher/create")
 })
 
-routes.post("/teachers",teachers.post)
+routes.post("/teachers", teachers.post)
+routes.get("/teacher/:id", teachers.show)
+routes.get("/teacher/:id/edit", teachers.edit)
 
 
-routes.get("/not-found",function(req, res){
+routes.get("/not-found", function (req, res) {
     return res.render("not-found")
 })
 
-routes.use(function(req, res) {
+routes.use(function (req, res) {
     res.status(404).render("not-found");
-  });
+});
 
-  module.exports = routes
+module.exports = routes

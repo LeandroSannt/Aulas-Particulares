@@ -1,0 +1,16 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+    <form class="card" method="POST" action="/teachers">
+        <div class="img-url"></div>
+        <div class="details">
+            <h3>Novo Professor</h3>
+
+            {%include "teacher/fields.njk"%}
+
+        </div>
+
+    </form>
+
+{% endblock content %}
