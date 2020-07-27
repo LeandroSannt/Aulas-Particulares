@@ -1,16 +1,25 @@
 {% extends "layout.njk" %}
 
 {% block content %}
+<div class="card">
+     <div class="img-url"></div>
 
-    <form class="card" method="POST" action="/teachers">
-        <div class="img-url"></div>
+<section class="put">
+    <form  method="POST" action="/teacher?_method=PUT">
         <div class="details">
-            <h3>Novo Professor</h3>
+                <h3>Novo Professor</h3>
+                {%include "teacher/fields.njk"%}
+                <input type="hidden" name="id"value={{teacher.id}}>
 
-            {%include "teacher/fields.njk"%}
+            <div class="btn">
+                <button class="salvar" type="submit">Salvar</button>
+            </div>
+     </form >
 
-        </div>
-
+    <form   method="POST" action="/teacher?_method=DELETE">
+        <div class="btn"></div>
+        <button class =delete type="submit">Deletar</button> 
+        <input type="hidden" name="id"value={{teacher.id}}>        
     </form>
 
 {% endblock content %}

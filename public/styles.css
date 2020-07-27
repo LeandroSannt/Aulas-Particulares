@@ -97,6 +97,9 @@ header a:hover {
 .details {
     padding: 32px;
 }
+.put{
+    position: relative;
+}
 
 .details .item {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -144,6 +147,7 @@ header a:hover {
 
 /*=====create=====*/
 
+
 input {
     width: 100%;
     outline: none;
@@ -182,8 +186,17 @@ button[type="submit"], .buttom {
     color: black;
     font-size: 16px;
     border-radius: 8px;
-    margin-top: 32px;
-    width: 100%;
+    margin-top: 10px;
+    font-weight: bold;
+    opacity: 1;
+    cursor: pointer;
+    
+       
+}
+
+button+button {
+    margin-left: 10px;
+    display: inline-block;
 }
 
 .buttom {
@@ -192,28 +205,67 @@ button[type="submit"], .buttom {
     text-decoration: none;
 }
 
+.put .btn {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.details .enviar {
+    width: 100%;
+
+}
+
+.card .put .delete{
+    width: 41.1%;
+    position: absolute;
+    left:235px;
+    bottom: 32px;
+    background-color: rgba(207, 27, 27, 0.781);
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 1;
+}
+button[type="submit"], .buttom,
+.card .put .delete:hover{
+  opacity: 0.7;
+
+}
+
+.card .put .salvar{
+    width: 50%;
+}
+
 
 /*=====responsive=====*/
 
-@media (max-width:865px){
-
-    .card{
+@media (max-width:865px) {
+    .card {
         width: 85vw;
         display: flex;
         flex-direction: column;
-    
     }
-    body{
+    body {
         position: relative;
     }
-
-    .card .img-url{
-        
+    .card .img-url {
         height: 200px;
-      
-        
     }
 
-   
+    .card .put .salvar{
+        display: flex;
+        justify-content: center;
+        width: 40%;
+        left:165px;
 
+    }
+
+    .card .put .delete{
+        display: flex;
+        justify-content: center;
+        width: 32%;
+        left:150px;
+    
+    }
 }
+

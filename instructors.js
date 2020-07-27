@@ -42,7 +42,6 @@ exports.show = function (req, res) {
     const foundTeacher = data.instructors.find(function (teacher) {
         return teacher.id == id
     })
-
     if (!foundTeacher) return res.send("Teacher not found")
 
     const teacher = {
@@ -51,13 +50,12 @@ exports.show = function (req, res) {
         services: foundTeacher.services.split(","),
         create_at: new Intl.DateTimeFormat('pt-BR').format(foundTeacher.create_at)
     }
-
-
     return res.render(`teacher/show`, { teacher })
 }
 
 exports.edit = function (req, res) {
     const { id } = req.params
+    
     const foundTeacher = data.instructors.find(function (teacher) {
         return teacher.id == id
     })
@@ -71,4 +69,43 @@ exports.edit = function (req, res) {
     return res.render("teacher/edit", { teacher })
 }
 
+exports.put=function(req,res){
+    const{id}= req.body
+    let index = 0
 
+    const foundTeacher = data.instructors.find(function (teacher, foundIndex) {
+        if (teacher.id == id){
+        index = foundIndex
+        return true
+    }
+    })
+    if (!foundTeacher) return res.send("Teacher not found")
+
+    const teacher ={
+        ...foundTeacher,
+        ...req.body,
+        birth: Date.parse(req.body.birth),
+        id:Number(req.body.id)
+    }
+
+    data.instructors[index] = teacher
+
+    fs.writeFile("data.json", JSON.stringify(data,null,2),function(err){
+        if(err) return res.send("Write error")
+    })
+    return res.redirect(`/teacher/${id}`)  
+}
+
+exports.delete = function(req,res){
+    const {id} = req.body
+    const filteredTeachers = data.instructors.filter(function(teacher){
+        return id != teacher.id
+    })
+    data.instructors= filteredTeachers
+
+    fs.writeFile("data.json", JSON.stringify(data,null,2), function(err){
+        if (err) return res.send("Erro")
+
+        return res.redirect ("/teacher")
+    })
+}

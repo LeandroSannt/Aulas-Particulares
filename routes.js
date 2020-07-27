@@ -20,9 +20,13 @@ routes.get("/teacher/create", function (req, res) {
     return res.render("teacher/create")
 })
 
-routes.post("/teachers", teachers.post)
+
 routes.get("/teacher/:id", teachers.show)
 routes.get("/teacher/:id/edit", teachers.edit)
+routes.post("/teacher", teachers.post)
+routes.put("/teacher", teachers.put)
+routes.delete("/teacher", teachers.delete)
+
 
 
 routes.get("/not-found", function (req, res) {

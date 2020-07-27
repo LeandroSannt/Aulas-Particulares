@@ -2,12 +2,14 @@
 
 {% block content %}
 
-    <form class="card" method="POST" action="/teachers">
-        <div class="img-url"></div>
+    <form class="card" method="POST" action="/teacher">
+        <div class="img-url"><img src="{{teacher.avatar_url}}" alt=""></div>
         <div class="details">
             <h3>Novo Professor</h3>
 
             {%include "teacher/fields.njk"%}
+
+            <button class="enviar" type="submit">Enviar</button>
 
         </div>
 
