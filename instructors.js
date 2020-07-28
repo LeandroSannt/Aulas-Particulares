@@ -3,6 +3,28 @@ const data = require("./data.json")
 const { age, date } = require("./utils")
 const Intl = require("intl")
 
+exports.table =function (req,res){
+    let teach = []
+
+    for(let index = 1;index < data.instructors.length+1; index++){
+
+        const foundInstructor = data.instructors.find(function(teacher){
+
+            return teacher.id == index
+
+        })
+        if (!foundInstructor) {return res.send("instructor not found")}
+
+        teach.push({
+
+            ...foundInstructor,
+            services: foundInstructor.services.split(",")
+        }) 
+
+    }
+    return res.render("teacher/teachers", {teachers:teach})
+
+}
 
 exports.post = function (req, res) {
 
@@ -16,7 +38,7 @@ exports.post = function (req, res) {
 
     birth = Date.parse(birth)
     const create_at = Date.now()
-    const id = Number(data.instructors.length+1)
+    const id = Number(data.instructors.length + 1)
 
     data.instructors.push({
         id,
@@ -33,14 +55,14 @@ exports.post = function (req, res) {
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
         if (err) return res.send("algum erro")
 
-        return res.redirect(`/teacher/${id}`)
+        return res.redirect(`/teacher`)
     })
 }
 
 exports.show = function (req, res) {
     const { id } = req.params
     const foundTeacher = data.instructors.find(function (teacher) {
-        return teacher.id == id
+        return id == teacher.id
     })
     if (!foundTeacher) return res.send("Teacher not found")
 
@@ -57,7 +79,7 @@ exports.edit = function (req, res) {
     const { id } = req.params
     
     const foundTeacher = data.instructors.find(function (teacher) {
-        return teacher.id == id
+        return id == teacher.id
     })
     if (!foundTeacher) return res.send("Teacher not found")
 
@@ -93,7 +115,7 @@ exports.put=function(req,res){
     fs.writeFile("data.json", JSON.stringify(data,null,2),function(err){
         if(err) return res.send("Write error")
     })
-    return res.redirect(`/teacher/${id}`)  
+    return res.redirect(`/teacher`)  
 }
 
 exports.delete = function(req,res){

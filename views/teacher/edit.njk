@@ -2,7 +2,8 @@
 
 {% block content %}
 <div class="card">
-     <div class="img-url"></div>
+        <div class="img-url" style="background:url({{teacher.avatar_url}}) no-repeat center center/cover">
+        </div>
 
 <section class="put">
     <form  method="POST" action="/teacher?_method=PUT">

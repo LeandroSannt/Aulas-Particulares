@@ -1,8 +1,16 @@
-const card = document.querySelectorAll(".card")
-const status = document.querySelectorAll(".info .starter")
+const services =document.getElementById("services")
+
+var elements =services.innerHTML.trim().split("")
 
 
-for (let i = 0; i < status.length; i++) {
+for( let i = 0;i<elements.length; i++){
+    elements[0].style.backgroundColor = "#7159c1"
+}
+
+
+console.log(services)
+
+/*for (let i = 0; i < status.length; i++) {
     status[0].style.backgroundColor = "#7159c1"
     status[1].style.backgroundColor = "#fd951f"
     status[2].style.backgroundColor = "#04d361"
@@ -29,3 +37,4 @@ for (let cards of card) {
         window.location.href = `/course/${videoId}`
     })
 }
+*/

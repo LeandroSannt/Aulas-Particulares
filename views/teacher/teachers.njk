@@ -2,8 +2,32 @@
 
 {% block content %}
 
-    <section class="card">
-        
+    <section class="card table-container">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Professores</th>
+                    <th>Atendimento</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for teacher in teachers %}
+                <tr>
+                    <td><span style="background-image:url({{teacher.avatar_url}})"></span>{{teacher.name}}</td>
+                    
+                    
+                    <td >
+                       {% for teacher in teacher.services %}
+                    
+                    <span class="border">{{teacher}}</span>
+                    {% endfor %}
+                    <td><a href="teacher/{{teacher.id}}">Ver</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </section>
 
 {% endblock content %}
+
