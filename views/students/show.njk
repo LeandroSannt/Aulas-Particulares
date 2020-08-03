@@ -1,0 +1,48 @@
+{% extends "layout.njk" %}
+
+ {% block log %}
+         <a  href="/students"><img src="/imagens/arrow-left.svg" alt="login"> Voltar</a>
+{% endblock log %}
+
+{% block content %}
+
+    <section class="card">
+        <div class="img-url" style="background:url({{students.avatar_url}}) no-repeat center center/cover"></div>
+        <div class="details">
+            <h3>Detalhes</h3>
+
+            <div class="item">
+                <div>Aluno</div>
+                <div>{{students.name}}</div>
+            </div>
+
+            <div class="item">
+                <div>Aniversario</div>
+                <div>{{students.birth}}</div>
+            </div>
+
+            <div class="item">
+                <div>Email</div>
+                <div>{{students.email}}</div>
+            </div>
+
+            <div class="item">
+                <div>Ano Escolar</div>
+                <div>{{ students.yearschool}}</div>
+            </div>
+
+            <div class="item">
+                <div>Carga horaria semanal</div>
+                <div>
+                        <span>{{students.timehour}} horas</span>
+                </div>
+            </div>
+
+
+            <a href="/students/{{students.id}}/edit" class="buttom">Editar</a>
+
+        </div>
+
+    </section>
+
+{% endblock content %}

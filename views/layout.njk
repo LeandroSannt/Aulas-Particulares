@@ -16,14 +16,19 @@
             <body>
                 <header>
                     <div class="menu">
-                        <a href="/"class="active">Teachers </a>
+                        <a href="/teacher">Teachers </a>
                         <a href="/students">Students</a>
+                        {% block log %}{% endblock log %}
                     </div>
                 </header>
 
                 {%block content%}{%endblock content%}
 
-                {% block scripts %}{% endblock scripts %}
+
+                {% block script %}
+                 <script src="/scripts.js"></script>
+                {% endblock script %}
+               
 
                       
                     </body>

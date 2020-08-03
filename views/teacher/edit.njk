@@ -1,5 +1,10 @@
 {% extends "layout.njk" %}
 
+ {% block log %}
+         <a  href="/"><img src="/imagens/arrow-left.svg" alt="login"> Voltar</a>
+{% endblock log %}
+
+
 {% block content %}
 <div class="card">
         <div class="img-url" style="background:url({{teacher.avatar_url}}) no-repeat center center/cover">
@@ -17,7 +22,7 @@
             </div>
      </form >
 
-    <form   method="POST" action="/teacher?_method=DELETE">
+    <form id="form-delete"   method="POST" action="/teacher?_method=DELETE">
         <div class="btn"></div>
         <button class =delete type="submit">Deletar</button> 
         <input type="hidden" name="id"value={{teacher.id}}>        

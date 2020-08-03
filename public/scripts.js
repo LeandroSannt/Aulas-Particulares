@@ -1,40 +1,19 @@
-const services =document.getElementById("services")
+const currentPage =location.pathname
+const menuItems = document.querySelectorAll("header .menu a ")
 
-var elements =services.innerHTML.trim().split("")
-
-
-for( let i = 0;i<elements.length; i++){
-    elements[0].style.backgroundColor = "#7159c1"
+for(item of menuItems){
+    if(currentPage .includes(item.getAttribute("href"))){
+        item.classList.add("active")
+}
 }
 
 
-console.log(services)
+const formDelete =document.querySelector("#form-delete")
+console.log(formDelete)
+formDelete.addEventListener("submit",function(event){
 
-/*for (let i = 0; i < status.length; i++) {
-    status[0].style.backgroundColor = "#7159c1"
-    status[1].style.backgroundColor = "#fd951f"
-    status[2].style.backgroundColor = "#04d361"
+const confirmation = confirm("Deseja Deletar?")
+if(!confirmation){
+event.preventDefault()
 }
-
-for (let i = 0; i < card.length; i++) {
-    card[i].addEventListener("mouseenter", function () {
-        if (card[i] == starter) {
-            card[i].style.border = "1px solid #7159c1";
-        } else if (card[i] == launchbase) {
-            card[i].style.border = "1px solid #fd951f";
-        } else if (card[i] == gostack) {
-            card[i].style.border = "1px solid #04d361";
-        }
-        card[i].addEventListener("mouseleave", function () {
-            card[i].style.border = " none";
-        })
-    })
-
-}
-for (let cards of card) {
-    cards.addEventListener("click", function () {
-        const videoId = cards.getAttribute("id")
-        window.location.href = `/course/${videoId}`
-    })
-}
-*/
+})

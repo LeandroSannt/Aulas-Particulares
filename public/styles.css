@@ -18,10 +18,10 @@ body {
 }
 
 header {
+    
     width: 100vw;
     background-color: rgb(0, 0, 0);
     padding: 32px;
-    display: flex;
     justify-content: center;
     z-index: 999;
 }
@@ -36,6 +36,7 @@ header .menu a {
     color: white;
     position: relative;
     font-weight: 300;
+    position: relative;
 }
 
 .menu a.active {
@@ -44,6 +45,12 @@ header .menu a {
 
 header a:hover {
     color: var(--blue-secundary);
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    
 }
 
 .menu a::after {
@@ -60,6 +67,19 @@ header a:hover {
 .menu a:hover::after {
     width: 100%;
     transition: all 700ms ease-in-out;
+}
+
+.menu a:nth-child(3){
+  
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+
+.menu a:nth-child(3) img{
+    margin-right: 10px;
+
+    height: 25px;
 }
 
 /*=====content=====*/
@@ -288,6 +308,7 @@ button[type="submit"], .buttom,
 td, th{
     padding: 16px;
     border-bottom: 1px solid #b4adad9d;
+    text-align: center;
 }
 
 td{

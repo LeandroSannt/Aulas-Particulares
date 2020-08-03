@@ -1,0 +1,72 @@
+<div class="item">
+    <div>Avatar URL</div>
+    <div>
+        <input type="url" name="avatar_url" placeholder="http://" value="{{students.avatar_url}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Aluno</div>
+    <div>
+        <input type="text" name="name" placeholder="Nome completo" value="{{students.name}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Data de nascimento</div>
+    <div>
+        <input type="date" name="birth" value="{{students.birth}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Email</div>
+    <div>
+        <input type="email" name="email" value="{{students.email}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Ano Escolar</div>
+        <select name="yearschool">
+            <option value=" 5º ano"
+                {% if students.yearschool == "5serie"%}selected {%endif%} > 5º ano
+            </option>
+             <option value="6º ano"
+                {% if students.yearschool == "6serie"%}selected {%endif%} >6º ano
+            </option>
+             <option value="7º ano"
+                {% if students.yearschool == "7serie"%}selected {%endif%} >7º ano
+            </option>
+             <option value="8º ano"
+                {% if students.yearschool == "8serie"%}selected {%endif%} >8º ano
+            </option>
+             <option value="9º ano"
+                {% if students.yearschool == "9serie"%}selected {%endif%} > 9º ano
+            </option>
+             <option value="1º ano do ensino medio"
+                {% if students.yearschool == "1medio"%}selected {%endif%} >1º ano do ensino medio
+            </option>
+             <option value="2º ano do ensino medio"
+                {% if students.yearschool == "2medio"%}selected {%endif%} > 2º ano do ensino medio
+            </option>
+             <option value="3º ano do ensino medio"
+                {% if students.yearschool == "3medio"%}selected {%endif%} >3º ano do ensino medio
+            </option>
+        </select>
+
+        <div class="item">
+    <div>Carga de horaria semanal</div>
+    <div>
+        <input type="number" name="timehour" value="{{students.timehour}}"
+        placeholder="Indique a quantidade de horas de aulas particulares por semana">
+    </div>
+</div>
+
+
+</div>
+
+
+
+
+

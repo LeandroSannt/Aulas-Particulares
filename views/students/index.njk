@@ -1,0 +1,36 @@
+{% extends "layout.njk" %}
+
+
+ {% block log %}
+         <a  href="students/create"><img src="/imagens/log-in.svg" alt="login">Cadastrar</a>
+    {% endblock log %}
+
+{% block content %}
+
+    <section class="card table-container">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Estudante</th>
+                    <th>Email</th>
+                    <th>Ano Escolar</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td><span style="background-image:url({{student.avatar_url}})"></span>{{student.name}}</td>
+                    <td >{{student.email}}</td>
+                    <td >{{student.yearschool}}</td>
+
+                    <td><a href="students/{{student.id}}">Ver</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+
+{% endblock content %}
+
