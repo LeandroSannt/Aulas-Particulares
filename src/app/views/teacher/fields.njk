@@ -35,11 +35,13 @@
     <div>Tipo de Aula</div>
     <div>
         <span>
-            <input type="radio" name="availability" id="availabilityP" value="P" {% if teacher.availability == "P"   %} checked {% endif %}>
+            <input type="radio" name="availability" id="availabilityP" value="P" 
+            {% if teacher.availability == "P"   %} checked {% endif %}>
             <label for="availabilityP">Presencial</label>
         </span>
         <span>
-            <input type="radio" name="availability" value="O" {% if teacher.availability == "O"   %} checked {% endif %} id="availabilityO">
+            <input type="radio" name="availability" value="O" 
+            {% if teacher.availability == "O"   %} checked {% endif %} id="availabilityO">
             <label for="availabilityO">Online</label>
         </span>
     </div>

@@ -1,13 +1,13 @@
 const express = require("express")
 const routes = express.Router()
-const teachers = require("./controllers/instructors")
-const students = require("./controllers/students")
+const teachers = require("./app/controllers/instructors")
+const students = require("./app/controllers/students")
 
 routes.get("/", function (req,res){
     return res.redirect("teacher")
 })
 
-routes.get("/teacher", teachers.table)
+routes.get("/teacher", teachers.index)
 routes.get("/teacher/create", teachers.create)
 routes.get("/teacher/:id", teachers.show)
 routes.get("/teacher/:id/edit", teachers.edit)
@@ -19,7 +19,7 @@ routes.delete("/teacher", teachers.delete)
 
 /*======Students======*/
 
-routes.get("/students", students.table)
+routes.get("/students", students.index)
 routes.get("/students/create", students.create)
 routes.get("/students/:id", students.show)
 routes.get("/students/:id/edit", students.edit)

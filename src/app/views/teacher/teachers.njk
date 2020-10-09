@@ -18,15 +18,17 @@
             <tbody>
                 {% for teacher in teachers %}
                 <tr>
-                    <td><span style="background-image:url({{teacher.avatar_url}})"></span>{{teacher.name}}</td>
+                    <td><span style="background-image:url({{teacher.avatar_url}})"></span>
+                    {{teacher.name}}
+                    </td>
                     
                     
                     <td >
-                       {% for teacher in teacher.services %}
+                       {% for services in teacher.services %}
                     
-                    <span class="border">{{teacher}}</span>
+                    <span >{{services}}</span>
                     {% endfor %}
-                    <td><a href="teacher/{{teacher.id}}">Ver</a></td>
+                    <td><a href="teacher/{{services.id}}">Ver</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -34,4 +36,3 @@
     </section>
 
 {% endblock content %}
-
