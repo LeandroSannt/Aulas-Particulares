@@ -28,22 +28,21 @@
 
             <div class="item">
                 <div>Tipo de aula</div>
-                <div>{{"Presencial" if teacher.availability ==  "Presencial" else "Online"}}</div>
+                <div>{{"Presencial" if teacher.availability ==  "P" else "Online"}}</div>
             </div>
 
             <div class="item">
                 <div>acompanhamento</div>
                 <div>
                     {% for service in teacher.services %}
-                        <span>{{service}}</span>
+                       {{service}}
                     {% endfor %}
-
                 </div>
             </div>
 
             <div class="item">
                 <div>Desde</div>
-                <div>{{teacher.create_at}}</div>
+                <div>{{teacher.created_at}}</div>
             </div>
 
             <a href="/teacher/{{teacher.id}}/edit" class="buttom">Editar</a>

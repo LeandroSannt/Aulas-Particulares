@@ -23,9 +23,23 @@
     <div>Grau de Escolaridade</div>
     <div>
         <select name="escolaridade">
-            <option value="superior">Superior Completo</option>
-            <option value="mestrado">Mestrado</option>
-            <option value="doutorado">Doutorado</option>
+            <option 
+                value="Superior"
+                {% if teacher.escolaridade == "Superior"   %} selected="selected" {% endif %}>
+                Superior Completo
+            </option>
+
+            <option 
+                value="Mestrado"
+                {% if teacher.escolaridade == "Mestrado"   %} selected="selected" {% endif %}>
+                Mestrado
+            </option>
+
+            <option 
+                value="Doutorado"
+                {% if teacher.escolaridade == "Doutorado"   %} selected="selected" {% endif %}>
+                Doutorado
+            </option>
         </select>
 
     </div>
@@ -53,3 +67,11 @@
         <input type="text" name="services" placeholder="Separe os serviços prestados por virgula" maxlength="40" value="{{teacher.services}}">
     </div>
 </div>
+
+
+{% block formDelete %}
+
+
+
+{% endblock formDelete %}
+

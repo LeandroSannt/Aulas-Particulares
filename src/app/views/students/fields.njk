@@ -30,32 +30,45 @@
     <div>Ano Escolar</div>
         <select name="yearschool">
             <option value=" 5º ano"
-                {% if students.yearschool == "5serie"%}selected {%endif%} > 5º ano
+                {% if students.yearschool == "5º ano"%}selected {%endif%} > 5º ano
             </option>
              <option value="6º ano"
-                {% if students.yearschool == "6serie"%}selected {%endif%} >6º ano
+                {% if students.yearschool == "6º ano"%}selected {%endif%} >6º ano
             </option>
              <option value="7º ano"
-                {% if students.yearschool == "7serie"%}selected {%endif%} >7º ano
+                {% if students.yearschool == "7º ano"%}selected {%endif%} >7º ano
             </option>
              <option value="8º ano"
-                {% if students.yearschool == "8serie"%}selected {%endif%} >8º ano
+                {% if students.yearschool == "8º ano"%}selected {%endif%} >8º ano
             </option>
              <option value="9º ano"
-                {% if students.yearschool == "9serie"%}selected {%endif%} > 9º ano
+                {% if students.yearschool == "9º ano"%}selected {%endif%} > 9º ano
             </option>
              <option value="1º ano do ensino medio"
-                {% if students.yearschool == "1medio"%}selected {%endif%} >1º ano do ensino medio
+                {% if students.yearschool == "1º ano do ensino medio"%}selected {%endif%} >1º ano do ensino medio
             </option>
              <option value="2º ano do ensino medio"
-                {% if students.yearschool == "2medio"%}selected {%endif%} > 2º ano do ensino medio
+                {% if students.yearschool == "2º ano do ensino medio"%}selected {%endif%} > 2º ano do ensino medio
             </option>
              <option value="3º ano do ensino medio"
-                {% if students.yearschool == "3medio"%}selected {%endif%} >3º ano do ensino medio
+                {% if students.yearschool == "3º ano do ensino medio"%}selected {%endif%} >3º ano do ensino medio
             </option>
         </select>
+<div class="item">
 
-        <div class="item">
+
+    <div class="item">
+        <div>Selecione o Professor</div>
+            <select name="teacher" >
+                {% for teacher in teacherOptions %}
+                    <option value="{{teacher.id}}"
+                        {% if students.teachers_id == teacher.id %}selected {%endif%} > 
+                        {{teacher.name}}
+                     </option>
+                {% endfor %}
+            </select>
+    <div class="item">
+
     <div>Carga de horaria semanal</div>
     <div>
         <input type="number" name="timehour" value="{{students.timehour}}"

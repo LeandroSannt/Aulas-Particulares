@@ -6,7 +6,6 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f676f6c64656e2d77696e642f626f6f7463616d702d6c61756e6368626173652f6c6f676f2e706e67.png" type="image/x-icon">
         {%block style%}{%endblock%}
             {%block title%}{%endblock%}
 
@@ -22,14 +21,31 @@
                     </div>
                 </header>
 
-                {%block content%}{%endblock content%}
+                {%block content%}
 
-
+                      {% block filter %}
+                {% endblock filter %}
+                
+                {%endblock content%}
+          
                 {% block script %}
-                 <script src="/scripts.js"></script>
-                {% endblock script %}
-               
+                
+                    <script src="/scripts.js"></script>
 
-                      
-                    </body>
-                </html>
+                    {% endblock script %}
+
+
+                    {% block formDelete %}
+                    <script>
+                            const formDelete =document.querySelector("#form-delete")
+                        formDelete.addEventListener("submit",function(event){
+                        const confirmation = confirm("Deseja Deletar?")
+                        if(!confirmation){
+                        event.preventDefault()
+                            }
+                        })
+                    </script>
+                    {% endblock formDelete %}
+                  
+     </body>
+</html>

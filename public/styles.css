@@ -12,6 +12,8 @@
 }
 
 body {
+    width: 100vw;
+    height: 100vh;
     font-family: 'Roboto', sans-serif;
     background: url(./imagens/bg-colegio.svg) no-repeat center center/cover;
     background-attachment: fixed;
@@ -82,13 +84,49 @@ header a:hover {
     height: 25px;
 }
 
+
 /*=====content=====*/
 
+.seacherFilter form{
+    display: grid;
+    grid-template-columns: 1fr 120px;
+}
+
+.seacherFilter {
+    margin: 2rem 5rem;
+}
+
+.seacherFilter input::placeholder{
+  
+    color: #ececec;
+}
+
+.seacherFilter input:focus{
+    border: 4px solid #7dbe80;
+}
+
+.seacherFilter input{
+    padding: 0 8px;
+}
+
+.seacherFilter .filter{
+    border-radius: 0 4px 4px 0;
+}
+
+.seacherFilter .filter{
+    margin: initial;
+   background-color: black;
+   border:4px solid rgb(32, 15, 83);
+   opacity: 1;
+   cursor: pointer;
+}
+
+
 .card {
-    width: 800px;
-    min-height: 400px;
+    width: 90vw;
+    min-height: 80vh;
     background-color: rgb(24, 138, 184);
-    margin: 70px auto;
+    margin: 40px auto;
     display: grid;
     box-shadow: 2px 3px 6px 1px black;
     grid-template-columns: 1fr 1.3fr;
@@ -239,8 +277,8 @@ button+button {
 .card .put .delete{
     width: 41.1%;
     position: absolute;
-    left:235px;
-    bottom: 32px;
+    left: 470px;
+    bottom: 53px;
     background-color: rgba(207, 27, 27, 0.781);
     font-weight: bold;
     cursor: pointer;
@@ -292,7 +330,9 @@ button[type="submit"], .buttom,
 /*=======table=======*/
 
 .table-container{
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     padding: 40px;
     box-sizing: border-box;
  
@@ -339,6 +379,7 @@ tbody tr td:first-child{
     display: grid;
     grid-template-columns: 64px 1fr;
     align-items: center;
+    padding-right: 60px
 }
 
 tbody tr td:first-child span{
@@ -379,5 +420,23 @@ tbody tr td:nth-child(2) .border {
     text-transform: uppercase;
     font-size: 12px;
   
+}
+
+.table-container .pagination{
+    text-align: center;
+    margin: 20px;
+
+}
+
+.pagination a,
+.pagination span{
+   color: rgb(161, 158, 158);
+    text-decoration:none;
+    margin: 16px;
+}
+
+.pagination a:hover{
+    filter:brightness(0.3);
+    border-bottom: 1px solid rgb(161, 158, 158);
 }
 

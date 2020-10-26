@@ -4,7 +4,11 @@ var db = require("../lib/configs/db")
 module.exports = {
     all(callback){ 
         db.query(`
-            SELECT *  FROM teachers ORDER BY name ASC`, function(err , results){
+            SELECT teachers.*, count(students) AS total_students
+            FROM teachers
+            LEFT JOIN students ON(teacher_id =teachers.id)
+            GROUP BY teachers.id
+             ORDER BY name ASC`, function(err , results){
             if(err)throw `Database Error ! ${err}`
                 callback(results.rows)
     })   
@@ -46,24 +50,39 @@ module.exports = {
         })
     },
 
-   /* update(data , callback){
+    findBy(filter,callback){
+        db.query(`
+            SELECT teachers.*, count(students) AS total_students
+            FROM teachers
+            LEFT JOIN students ON(teacher_id =teachers.id)
+            WHERE teachers.name ILIKE '%${filter}%'
+            OR teachers.services ILIKE '%${filter}%'
+            GROUP BY teachers.id
+             ORDER BY name ASC`,             
+             function(err , results){
+            if(err)throw `Database Error ! ${err}`
+                callback(results.rows)
+    })   
+    },
+
+    update(data , callback){
         var query = `
             UPDATE teachers SET
             avatar_url =($1),
             name = ($2),
-            birth_date =($3),
-            education_level =($4),
-            class_type =($5),
-            subjects_taught =($6)
+            birth =($3),
+            escolaridade =($4),
+            availability =($5),
+            services =($6)
             WHERE id = $7
         `
         var values = [
             data.avatar_url,
             data.name,
-            date(data.birth_date).iso,
-            data.education_level,
-            data.class_type,
-            data.subjects_taught,
+            date(data.birth).iso,
+            data.escolaridade,
+            data.availability,
+            data.services,
             data.id
         ]
 
@@ -78,5 +97,41 @@ module.exports = {
             if(err){ throw `Database Error ! ${err}`}
             return callback()
         })
-    }*/
+    },
+    paginate(params){
+        const {filter,limit,offset,callback} = params
+
+        let query ="",
+            filterQuery="",
+            totalQuery=`(
+                SELECT count(*) FROM teachers
+            ) AS total
+            `
+            if(filter){
+                filterQuery=`
+                WHERE teachers.name ILIKE '%${filter}%'
+                OR teachers.services ILIKE '${filter}'
+                `
+                totalQuery=`(
+                    SELECT count (*) From teachers
+                    ${filterQuery}
+                ) AS total
+                `
+            }
+
+            query=`
+            SELECT teachers.*, ${totalQuery},
+            count (students) AS total_students
+            FROM teachers
+            LEFT JOIN students ON(teachers.id = students.teacher_id)
+            ${filterQuery}
+            GROUP BY teachers.id LIMIT $1 OFFSET $2
+            `
+
+            db.query(query,[limit,offset],function(err,results){
+                if(err) throw "Database error"
+
+                callback(results.rows)
+            })
+    }
 } 
