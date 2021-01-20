@@ -1,3 +1,4 @@
+const dotenv = require("dotenv")
 const express = require('express')
 const nunjucks = require("nunjucks")
 const routes =require("./routes")
@@ -6,6 +7,7 @@ const cors = require("cors")
 
 const server = express()
 
+dotenv.config()
 server.use(cors())
 server.use(express.urlencoded({extended:true}))
 server.use(express.static('public'))
